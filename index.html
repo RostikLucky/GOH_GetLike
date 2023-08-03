@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>GOH_GetLike</title>
+  <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="drug_box">
+    GOH_GetLike
+    <div id="close"><i onclick="window.close()" class="fa fa-minus-square-o"></i></div>
+  </div>
+  <div style="width: 100%; height: 50px; position: absolute; bottom: 0px;">
+    <div id="alert_win"></div>
+  </div>
+  <ul id="accordion" class="accordion">
+    <div id="login_win">
+      <li class="open">
+        <div class="link"><i class="fa fai fa-bars"></i>Войдите в аккаунт<i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu" style="display: block;" id="sessions">
+          У вас нет активных аккаунтов!
+        </ul>
+      </li>
+      <li>
+        <div class="link"><i class="fa fai fa-plus"></i>Добавить аккаунт<i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu">
+          Введите YII_CSRF_TOKEN от аккаунта
+          <input type="text" placeholder="YII_CSRF_TOKEN" spellcheck="false" id="YII_CSRF_TOKEN">
+          Введите PHPSESSID от аккаунта
+          <input type="text" placeholder="PHPSESSID" spellcheck="false" id="PHPSESSID">
+          <button onclick="checkCookie()">Войти в аккаунт</button>
+          <div style="margin-top: 12px; text-align: center; font-size: 11px;"><a href="https://telegra.ph/Gde-najti-YII-CSRF-TOKEN-i-PHPSESSID-03-09" target="_blank">Где найти YII_CSRF_TOKEN и PHPSESSID?</a></div>
+        </ul>
+      </li>
+    </div>
+    <div id="main_win" style="display: none;">
+      <li id="main_win_open_1">
+        <div class="link"><i class="fa fai fa-home"></i>Главное меню<i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu" id="main_win_open_2">
+          <i class="fa fa-diamond" style="margin-left: 3px"></i> Ваш баланс 
+            <input type="number" name="" style="width: 70px; height: 25px; text-align: center; margin-bottom: 0px;" id="GOH_Balance" readonly="readonly"> руб.
+          <hr>
+          <i class="fa fa-money" style="margin-left: 3px"></i> Заработок  
+            <input type="number" name="" style="width: 70px; height: 25px; text-align: center; margin-top: 0px; margin-bottom: 0px;" id="GOH_Earned" readonly="readonly"> руб.
+          <hr>
+          <i class="fa fa-tasks" style="margin-left: 3px"></i> Выполнено  
+            <input type="text" name="" style="width: 70px; height: 25px; text-align: center; margin-top: 0px; margin-bottom: 0px;" id="GOH_Tasks" readonly="readonly"> заданий
+          <hr>
+          <i class="fa fa-user" style="margin-left: 3px"></i> Аккаунт Telegram  
+            <input type="text" name="" style="width: 70px; height: 25px; text-align: center; margin-top: 0px; margin-bottom: 0px;" id="GOH_ActiveAccount" readonly="readonly">
+          <hr>
+          <div id="GOH_Log" style="margin-top: 8px; margin-bottom: 8px;"></div>
+          <button onclick="bot_start()" id="GOH_Start">Запустить бота</button>
+        </ul>
+      </li>
+      <li>
+        <div class="link"><i class="fa fai fa-bars"></i>Аккаунты<i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu" id="TGAccounts">
+          У вас нет активных аккаунтов!
+        </ul>
+      </li>
+      <li>
+        <div class="link"><i class="fa fai fa-sliders"></i>Настройки<i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu">
+          <i class="fa fa-user" style="margin-left: 3px"></i> Смена Telegram через 
+            <input type="number" name="" style="width: 40px; height: 25px; text-align: center; margin-bottom: 0px;" id="GOH_ST_ChangeTG" step=1> заданий
+          <hr>
+          <i class="fa fa-clock-o" style="margin-left: 3px"></i> Задержка между заданиями 
+            <input type="number" name="" style="width: 40px; height: 25px; text-align: center; margin-top: 0px; margin-bottom: 0px;" id="GOH_ST_DelayTask" step=1> сек.
+          <hr>
+          <i class="fa fa-clock-o" style="margin-left: 3px"></i> Сон после блокировки TG
+            <input type="number" name="" style="width: 40px; height: 25px; text-align: center; margin-top: 0px;" id="GOH_ST_SleepTG" step=1> мин.
+          <div style="margin-top: 4px; text-align: center; font-size: 11px;"><a href="https://getlike.io/profile/" target="_blank">Открыть сайт GetLike</a></div>
+        </ul>
+      </li>
+    </div>
+  </ul>
+  <script src='https://code.jquery.com/jquery-3.6.4.min.js'></script>
+  <script  src="./script.js"></script>
+</body>
+</html>

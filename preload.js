@@ -1,0 +1,2 @@
+const { contextBridge, ipcRenderer } = require('electron');
+contextBridge.exposeInMainWorld('electronAPI', {setCookie: (data) => ipcRenderer.send('set-cookie', data), dev: (data) => ipcRenderer.send('dev', data)});
